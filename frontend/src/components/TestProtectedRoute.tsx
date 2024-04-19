@@ -1,8 +1,8 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
-import { useAuthContext } from "../../utils/hooks/useCustomContext";
-import { useLogout } from "../../utils/hooks/useLogout";
-import useAxiosInstance from "../../utils/config/axiosInstance";
-import { ApiResponse } from "../../../types/ApiResponse";
+import { useAuthContext } from "../utils/hooks/useCustomContext";
+import { useLogout } from "../utils/hooks/useLogout";
+import useAxiosInstance from "../utils/config/axiosInstance";
+import { ApiResponse } from "../../types/ApiResponse";
 import { Link } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 

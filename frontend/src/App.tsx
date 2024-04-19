@@ -3,10 +3,10 @@ import Layout from "./layouts/Layout";
 import Landing from "./pages/landing/LandingPage";
 import LoginPage from "./pages/login/LoginPage";
 import AuthProvider from "./providers/AuthProvider";
-import TestProtectedRoute from "./pages/landing/TestProtectedRoute";
+import TestProtectedRoute from "./components/TestProtectedRoute";
 import ProtectedRoutes from "./components/ProtectedRoutes";
 import "./style.css";
-import TestProtectedRoute2 from "./pages/landing/TestProtectedRoute2";
+import TestProtectedRoute2 from "./components/TestProtectedRoute2";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 const queryClient = new QueryClient();

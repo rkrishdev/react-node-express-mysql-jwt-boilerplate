@@ -1,9 +1,9 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { useVerifyToken } from "../utils/hooks/useVerifyToken";
-import { useAuthContext } from "../utils/hooks/useCustomContext";
-import useAxiosInstance from "../utils/config/axiosInstance";
-import { ApiResponse } from "../../types/ApiResponse";
+import { useVerifyToken } from "../../utils/hooks/useVerifyToken";
+import { useAuthContext } from "../../utils/hooks/useCustomContext";
+import useAxiosInstance from "../../utils/config/axiosInstance";
+import { ApiResponse } from "../../../types/ApiResponse";
 
 const Login = () => {
   const navigate = useNavigate();
