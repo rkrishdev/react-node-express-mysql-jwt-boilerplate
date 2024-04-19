@@ -2,7 +2,7 @@
 
 Node/express.js backend boilerplate only with JWT authentication. 
 
-## Files and folders ignored but necessary for the app
+## Files or folders excluded but necessary for the app
 
 1. .env
 
