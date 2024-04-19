@@ -40,7 +40,7 @@ I made this boilerplate to get better understanding with JWT and to add scalabil
 
 This project requires several things in order to run. Let's start with server.
 
-Server:
+### Server:
 
 1. The JWT algorithm is RS256 hence it requires a RSA key pair. To generate one install OpenSSL or download it from SOURCEFORGE (https://sourceforge.net/projects/openssl/). Follow the below steps to generate a key by yourself using OpenSSL.
 
@@ -95,7 +95,7 @@ I have given this hash for default password (Test@2024).
 
 9. Create a user account in MySQL or simple use root.
 
-Frontend (React):
+### Frontend (React):
 
 Create .env.local and .env.production files in the frontend directory and add below 3 values in it as per you requirement.
 
