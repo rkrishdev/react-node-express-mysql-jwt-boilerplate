@@ -131,23 +131,25 @@ Create **.env.local and .env.production** files in the frontend directory and ad
     npm install
     ```
 
-5. Before running the app make sure the MySQL service is running.
+5. Create two separate folders **private** and **public** in the root of server folder.
 
-6. Run the react app in development.
+6. Before running the app make sure the MySQL service is running.
+
+7. Run the react app in development.
 
     ```bash
     cd frontend
     npm run dev    
     ```
 
-6. Run the express server.
+8. Run the express server.
 
     ```bash
     cd server
     npm run server
     ```
 
-7. Open your browser and go to http://localhost:5173/ for the react app and http://localhost:5010/ for the server
+9. Open your browser and go to http://localhost:5173/ for the react app and http://localhost:5010/ for the server
 
 ## Production
 
