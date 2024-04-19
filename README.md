@@ -52,17 +52,17 @@ This project requires several things in order to run. Let's start with server.
     cat jwtRS256.key.pub
     ```
 
-Save both keys in server/certs directory.
+Save both keys in **server/certs** directory.
 
-(credits: [ygotthilf](https://gist.github.com/ygotthilf/baa58da5c3dd1f69fae9))
+(**credits**: [ygotthilf](https://gist.github.com/ygotthilf/baa58da5c3dd1f69fae9))
 
-2. An ecncryption key for AES-256-CBC algorithm. You can get it by several ways but for simplicity you can use this website (https://generate-random.org/encryption-key-generator) to get a 256 bit key. Store that key in a .env file as AES_ENC_KEY.
+2. An encryption key for AES-256-CBC algorithm. You can get it by several ways but for simplicity you can use this website (https://generate-random.org/encryption-key-generator) to get a 256 bit key. Store that key in a .env file as AES_ENC_KEY.
 
-3. Checkout the .env.example for other values.
+3. Checkout the **.env.example** for other values.
 
 4. Install MySQL/MariaDB or use xampp server.
 
-5. Create a database with any name. For example: node_express_boiler_plate.
+5. Create a database with any name. For example: **node_express_boiler_plate**.
 
 6. Create a table called 'user'.
 
@@ -93,11 +93,11 @@ Save both keys in server/certs directory.
 
     I have given this hash for default password (Test@2024).
 
-9. Create a user account in MySQL or simple use root.
+9. Create a **user account** in MySQL or simple use root.
 
 ### Frontend (React):
 
-Create .env.local and .env.production files in the frontend directory and add below 3 values in it as per you requirement.
+Create **.env.local and .env.production** files in the frontend directory and add below 3 values in it as per you requirement.
 
 1. VITE_PUBLIC_URL (acts as the public/base url for react app)
 
