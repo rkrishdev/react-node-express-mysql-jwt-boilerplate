@@ -149,7 +149,7 @@ Create **.env.local and .env.production** files in the frontend directory and ad
    npm run server
    ```
 
-9. Open your browser and navigate to http://localhost:5173/ for the React app and http://localhost:5010/ for the server.
+9. Open your browser and navigate to **http://localhost:5173/** for the **React app** and **http://localhost:5010/** for the **express.js server**.
 
 ## Production
 
