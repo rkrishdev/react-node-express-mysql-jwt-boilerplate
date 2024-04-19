@@ -97,15 +97,13 @@ I have given this hash for default password (Test@2024).
 
 Frontend (React):
 
-You only want these values for the react app.
+Create .env.local and .env.production files in the frontend directory and add below 3 values in it as per you requirement.
 
 1. VITE_PUBLIC_URL (acts as the public/base url for react app)
 
 2. VITE_BASENAME (to provide base path for the react in case if you are going to run in a sub-directory)
 
 3. VITE_API_PUBLIC_URL (base url of the api server)
-
-Create .env.local and .env.production files in the frontend directory and add the above 3 values in it as per you requirement.
 
 ## Installation:
 
