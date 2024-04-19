@@ -160,7 +160,7 @@ I use apache web server for serving the react production build and reverse proxy
 1. Build the react app.
 
     ```bash
-    cd frontned
+    cd frontend
     npm run build
     ```
 
