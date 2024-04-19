@@ -28,7 +28,7 @@ const corsOptions = {
 
 app.use(cors(corsOptions));
 
-app.use("/static/assets", express.static(__dirname + "/public"));
+app.use("/storage/assets", express.static(__dirname + "/public"));
 
 app.use(cookieParser());
 
@@ -42,7 +42,7 @@ async function isAuthenticated(req, res, next) {
 }
 
 app.use(
-  "/static/private/assets",
+  "/storage/private/assets",
   isAuthenticated,
   express.static(__dirname + "/private")
 );

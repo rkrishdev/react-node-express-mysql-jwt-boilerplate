@@ -186,11 +186,11 @@ I use apache web server for serving the react production build and reverse proxy
         ProxyPass /api http://domain.com:5010/api
         ProxyPassReverse /api http://domain.com:5010/api
 
-        ProxyPass /static/assets http://domain.com:5010/static/assets
-        ProxyPassReverse static/assets http://domain.com:5010/static/assets
+        ProxyPass /storage http://domain.com:5010/storage
+        ProxyPassReverse storage http://domain.com:5010/storage
 
-        ProxyPass /static/private http://domain.com:5010/static/private
-        ProxyPassReverse static/private http://domain.com:5010/static/private
+        ProxyPass /storage/private http://domain.com:5010/storage/private
+        ProxyPassReverse storage/private http://domain.com:5010/storage/private
     </VirtualHost>
     ```
 
@@ -198,4 +198,4 @@ I use apache web server for serving the react production build and reverse proxy
 
 5. Go to domain.com you will see the react app running.
 
-Note! only api and static routes will be handled by the node/express app. You can add other routes if you want as alias.
+Note! only api and storage routes will be handled by the node/express app. You can add other routes if you want as alias.

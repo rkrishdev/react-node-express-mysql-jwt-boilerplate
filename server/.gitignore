@@ -1,6 +1,5 @@
 node_modules
 private
-public/images
 public/uploads
 certs
 .env
