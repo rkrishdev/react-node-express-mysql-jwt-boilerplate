@@ -91,7 +91,7 @@ Save both keys in server/certs directory.
     INSERT INTO user (u_user_id, u_name, u_email, u_mobile, u_password, u_image) VALUES (CONCAT('UID', FLOOR(100000000 + RAND() * 899999999)), 'Dev', 'developer@gmail.com', '9411111111', '$2y$10$veKVq0kHaVuMBN84Fj27u.eM4Fd4/e8DlreDsj6I1XOtmdVNjRS7O', '');
     ```
 
-I have given this hash for default password (Test@2024).
+    I have given this hash for default password (Test@2024).
 
 9. Create a user account in MySQL or simple use root.
 
