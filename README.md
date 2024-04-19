@@ -14,7 +14,7 @@ I made this boilerplate to get better understanding with JWT and to add scalabil
 
 5. Good caching and initial render because of the use of TanStack query 
 
-6. Vite React app with TypeScript
+6. Vite js React app with TypeScript
 
 7. Ready to deploy with few changes for production
 
@@ -105,7 +105,7 @@ You only want these values for the react app.
 
 3. VITE_API_PUBLIC_URL (base url of the api server)
 
-But most importantly .env.local and .env.production is needed!
+Create .env.local and .env.production files in the frontend directory and add the above 3 values in it as per you requirement.
 
 ## Installation:
 
