@@ -151,7 +151,7 @@ Create **.env.local and .env.production** files in the frontend directory and ad
 
 ## Production
 
-To deploy this app in production server, you need to do additional steps. Since you might be using any server for production, I will be show you some important steps based on mine but without SSL.
+To deploy this app in production server, you need to do additional steps. **Since you might be using any server for production, I will be show you some important steps based on mine but without SSL.**
 
 I use apache web server for serving the react production build and reverse proxying the node server running on port 5010.
 
@@ -162,7 +162,7 @@ I use apache web server for serving the react production build and reverse proxy
     npm run build
     ```
 
-2. Go to the dist folder and create a .htaccess file. This will serve the react app in all routes because without this if you go to some other route other than landing page you will get 404 error.
+2. Go to the dist folder and create a **.htaccess** file. This will serve the react app in all routes because without this if you go to some other route other than landing page you will get 404 error.
 
     ```bash
     RewriteEngine On
@@ -173,7 +173,7 @@ I use apache web server for serving the react production build and reverse proxy
     RewriteRule . /index.html [L]
     ```
 
-3. Go to the httpd/conf.d directory of your production server and create a new conf file for the express app. Add virtual host like this. Note! react-node-express-boilerplate is the directory where I will be storing the react production build with the .htaccess.
+3. Go to the **httpd/conf.d** directory of your production server and create a new conf file for the express app. Add virtual host like this. Note! react-node-express-boilerplate is the directory where I will be storing the react production build with the .htaccess.
 
     ```bash
     <VirtualHost domain.com:80>
