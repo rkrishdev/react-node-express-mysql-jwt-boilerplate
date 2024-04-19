@@ -1,4 +1,4 @@
-## Node/express.js boilerplate
+# Node/express.js boilerplate
 
 Node/express.js backend boilerplate only with JWT authentication. 
 

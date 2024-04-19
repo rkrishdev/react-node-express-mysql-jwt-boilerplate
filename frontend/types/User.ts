@@ -3,6 +3,7 @@ export interface User {
   name: string;
   email: string;
   mobile: number;
+  image: string;
 }
 
 export type RefreshToken = {

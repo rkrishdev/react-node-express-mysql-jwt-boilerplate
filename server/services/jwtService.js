@@ -8,8 +8,10 @@ import {
 import { getUserByUserId } from "../models/AuthModel.js";
 
 const rootDir = process.cwd();
-const keyPath = path.join(rootDir, "/certs/jwtRS256.key");
-const privateKey = await fs.readFile(keyPath);
+const privateKeyPath = path.join(rootDir, "/certs/jwtRS256.key");
+const publicKeyPath = path.join(rootDir, "/certs/jwtRS256.key.pub");
+const privateKey = await fs.readFile(privateKeyPath);
+const publicKey = await fs.readFile(publicKeyPath);
 
 export const sign = async (data, seconds = 30 * 60 * 60 * 24) => {
   if (!data) {
@@ -32,7 +34,7 @@ export const verifyToken = (token) => {
   }
 
   try {
-    return jwt.verify(token, privateKey, { algorithm: "RS256" });
+    return jwt.verify(token, publicKey, { algorithm: "RS256" });
   } catch (error) {
     /* console.error(error); */
     return null;

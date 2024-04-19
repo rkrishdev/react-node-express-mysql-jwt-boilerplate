@@ -7,7 +7,7 @@ export const getUserByEmail = async (email) => {
 
   try {
     const authenticated = await pool.query(
-      "SELECT * from yk_user WHERE u_email = ? AND u_deleted_status = 0 AND u_status = 1",
+      "SELECT * from user WHERE u_email = ? AND u_deleted_status = 0 AND u_status = 1",
       [email]
     );
     const [rows] = authenticated;
@@ -28,7 +28,7 @@ export const getUserByUserId = async (refId) => {
 
   try {
     const authenticated = await pool.query(
-      "SELECT * from yk_user WHERE u_user_id = ? AND u_deleted_status = 0 AND u_status = 1",
+      "SELECT * from user WHERE u_user_id = ? AND u_deleted_status = 0 AND u_status = 1",
       [refId]
     );
     const [rows] = authenticated;

@@ -1,4 +1,4 @@
-## React boilerplate for Node/express.js backend
+# React boilerplate for Node/express.js backend
 
 This repository only includes the frontend part. And only login functionality is done so far using JWT.
 
