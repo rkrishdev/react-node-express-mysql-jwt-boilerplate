@@ -44,6 +44,8 @@ This project requires several components in order to run. Let's start with the s
 
 1. The JWT algorithm is RS256, hence it requires an RSA key pair. To generate one, install OpenSSL or download it from SOURCEFORGE (https://sourceforge.net/projects/openssl/). Follow the steps below to generate a key by yourself using OpenSSL.
 
+(**credits**: ygotthilf)
+
    ```bash
    ssh-keygen -t rsa -b 4096 -m PEM -f jwtRS256.key
    # Don't add passphrase
@@ -53,8 +55,6 @@ This project requires several components in order to run. Let's start with the s
    ```
 
 Save both keys in the **server/certs** directory.
-
-(**credits**: ygotthilf)
 
 2. An encryption key for the AES-256-CBC algorithm is needed. You can get it in several ways, but for simplicity, you can use this website (https://generate-random.org/encryption-key-generator) to get a 256-bit key. Store that key in a .env file as AES_ENC_KEY.
 
