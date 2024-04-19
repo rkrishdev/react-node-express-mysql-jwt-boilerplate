@@ -1,6 +1,6 @@
 # React/Node.js/Express.js/MySQL boilerplate
 
-I made this boilerplate to get better understanding with JWT and to add scalability and flexibility for small to medium sized projects. And also to use this as the goto boilerplate for full stack node/express.js app. Understand that I made this with focus on pure functionality and features not the UI. So please bear with the UI.
+I made this boilerplate to get better understanding with JWT and to add scalability and flexibility for small to medium sized projects. And also to use this as the goto boilerplate for full stack node/express.js app currently for me. Understand that I made this with focus on pure functionality and features not the UI. So please bear with the UI.
 
 ## Features:
 
@@ -194,6 +194,6 @@ I use apache web server for serving the react production build and reverse proxy
 
 4. Install pm2 module or your preferred tool and run the node/express.js server.
 
-5. Go to domain.com you will see the react app.
+5. Go to domain.com you will see the react app running.
 
 Note! only api and static routes will be handled by the node/express app. You can add other routes if you want as alias.
