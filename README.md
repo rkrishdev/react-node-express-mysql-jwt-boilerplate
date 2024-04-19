@@ -1,6 +1,6 @@
 # React/Node.js/Express.js/MySQL boilerplate
 
-I made this boilerplate to get better understanding with JWT and to add scalability and flexibility for small to medium sized projects. And also to use this as the goto boilerplate for full stack node/express.js app currently for me. Understand that I made this with focus on pure functionality and features not the UI. So please bear with the UI.
+I made this boilerplate to get better understanding with JWT and to add scalability and flexibility for small to medium sized projects. And also to use this as the goto boilerplate for full stack node/express.js app currently for me. Understand that I made this purely focus on functionality and features not the UI. So please bear with the UI.
 
 ## Features:
 
