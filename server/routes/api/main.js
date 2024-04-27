@@ -1,6 +1,7 @@
 import express from "express";
-import { dummyDataController } from "../../controllers/api/MainController.js";
-import { verifyTokenMiddleware } from "../../middlewares/tokenMiddleware.js";
+import MainController from "../../controllers/api/MainController.js";
+
+const mainController = new MainController();
 
 const router = express.Router();
 router.use(express.json());
@@ -10,7 +11,7 @@ router.use(
   })
 );
 
-router.get("/dummydata", verifyTokenMiddleware, dummyDataController);
+router.get("/dummydata", mainController.dummyDataController);
 
 router.get("*", function (req, res) {
   res.status(404).json({

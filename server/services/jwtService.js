@@ -6,6 +6,7 @@ import {
   cryptoAESEncryption,
 } from "./encryptionService.js";
 import { getUserByUserId } from "../models/AuthModel.js";
+import { convertToRoleData } from "../utils/globals.js";
 
 const rootDir = process.cwd();
 const privateKeyPath = path.join(rootDir, "/certs/jwtRS256.key");
@@ -79,6 +80,8 @@ export const verifyRefreshToken = async (req) => {
             email: user.u_email,
             mobile: user.u_mobile,
             image: user.u_image,
+            role: user.u_role ? convertToRoleData(user.u_role) : "User",
+            roleValue: user.u_role ? user.u_role : 0,
           };
           const encUser = await cryptoAESEncryption(
             JSON.stringify(userData)

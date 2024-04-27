@@ -1,10 +1,8 @@
 import axios from "axios";
 import { useAuthContext } from "../hooks/useCustomContext";
 import { useCallback } from "react";
-import { useNavigate } from "react-router-dom";
 
 const useAxiosInstance = () => {
-  const navigate = useNavigate();
   const { accessToken, setIsAuth, setUser, setAccessToken } = useAuthContext();
 
   const createAxiosInstance = useCallback(() => {
@@ -22,7 +20,6 @@ const useAxiosInstance = () => {
         setUser(null);
         setAccessToken("");
         setIsAuth(false);
-        navigate("/login");
       }
       const accessTok = response.data?.auth?.accessToken;
       const userData = response.data?.auth?.user;
@@ -37,7 +34,7 @@ const useAxiosInstance = () => {
     });
 
     return axiosInstance;
-  }, [navigate, accessToken, setIsAuth, setUser, setAccessToken]);
+  }, [accessToken, setIsAuth, setUser, setAccessToken]);
 
   return createAxiosInstance;
 };

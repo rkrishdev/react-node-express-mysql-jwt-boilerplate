@@ -54,7 +54,9 @@ const TestProtectedRoute = () => {
   }
 
   return (
-    <div className="flex justify-center text-center">
+    <div
+      style={{ display: "flex", justifyContent: "center", textAlign: "center" }}
+    >
       <div>
         <div>This is a protected route.</div>
         <br />

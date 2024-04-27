@@ -1,16 +1,20 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useVerifyToken } from "../../utils/hooks/useVerifyToken";
 import { useAuthContext } from "../../utils/hooks/useCustomContext";
 import useAxiosInstance from "../../utils/config/axiosInstance";
 import { ApiResponse } from "../../../types/ApiResponse";
+import { TextField } from "@mui/material";
 
 const Login = () => {
+  const location = useLocation();
   const navigate = useNavigate();
+  const [email, setEmail] = useState<string>("");
+  const [password, setPassword] = useState<string>("");
   const [staySignedIn, setStaySignedIn] = useState<boolean>(false);
+  const [urlSlug, setUrlSlug] = useState<string>("");
 
-  const { isAuth, user, setIsAuth, setUser, setAccessToken, setIsLoading } =
-    useAuthContext();
+  const { isAuth, user, setIsAuth, setUser, setAccessToken } = useAuthContext();
 
   const verifyToken = useVerifyToken();
 
@@ -21,12 +25,20 @@ const Login = () => {
   ]);
 
   useEffect(() => {
+    setUrlSlug(
+      location.pathname.split("/") && location.pathname.split("/")[1]
+        ? "/" + location.pathname.split("/")[1]
+        : "/"
+    );
+  }, [location]);
+
+  useEffect(() => {
     if (isAuth && user) {
-      navigate("/protected");
+      navigate(urlSlug, { replace: true });
     } else {
-      verifyToken();
+      /* verifyToken(); */
     }
-  }, [navigate, isAuth, user, verifyToken]);
+  }, [urlSlug, navigate, isAuth, user, verifyToken]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -34,14 +46,16 @@ const Login = () => {
   };
 
   const getLoginData = useCallback(async () => {
-    setIsLoading(true);
-
-    //use input fields to enter email password
+    const urlSlug =
+      location.pathname.split("/") && location.pathname.split("/")[1]
+        ? location.pathname.split("/")[1]
+        : "/";
     const response = await axiosInstance.post<ApiResponse>(
       "/auth/login",
       {
-        email: "developer@gmail.com",
-        password: "Test@2024",
+        email: email,
+        password: password,
+        role: urlSlug,
         staySignedIn: staySignedIn,
       },
       {
@@ -67,34 +81,49 @@ const Login = () => {
         setIsAuth(true);
       }
     }
-    setIsLoading(false);
   }, [
+    email,
+    password,
+    location,
     axiosInstance,
     staySignedIn,
     setAccessToken,
     setIsAuth,
-    setIsLoading,
     setUser,
   ]);
 
   return (
     <>
-      <div className="flex justify-center">
+      <div style={{ display: "flex", justifyContent: "center" }}>
         <div>
-          <h1 className="text-center mb-10">Login Page</h1>
+          <h1 style={{ textAlign: "center" }}>Login Page</h1>
           <form onSubmit={handleSubmit}>
-            <div className="flex justify-center">
-              <div>
-                <input
-                  type="checkbox"
-                  name="stay_signed_in"
-                  id="stay_signed_in"
-                  onChange={(e) => setStaySignedIn(e.currentTarget.checked)}
-                />
-                <label htmlFor="stay_signed_in"> Stay Signed In?</label>
-              </div>
+            <div style={{ marginBottom: "1rem" }}>
+              <TextField
+                type="email"
+                name="email"
+                label="Email"
+                onChange={(e) => setEmail(e.target.value)}
+                required={true}
+                autoFocus={true}
+                style={{ marginRight: "1rem" }}
+              />
+              <TextField
+                type="password"
+                name="password"
+                label="Password"
+                onChange={(e) => setPassword(e.target.value)}
+                required={true}
+              />
+              <input
+                type="checkbox"
+                name="staySignedIn"
+                id="staySignedIn"
+                onChange={(e) => setStaySignedIn(e.currentTarget.checked)}
+              />
+              <label htmlFor="staySignedIn"> Stay Signed In?</label>
             </div>
-            <button type="submit" className="btn mt-10">
+            <button className="btn" type="submit">
               Login
             </button>
           </form>
@@ -105,7 +134,7 @@ const Login = () => {
       <Link className="btn" to={"/"} style={{ marginRight: "1rem" }}>
         Go to Home page
       </Link>
-      <Link className="btn" to={"/protected"}>
+      <Link className="btn" to={urlSlug}>
         Go to protected route
       </Link>
     </>

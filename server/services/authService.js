@@ -2,14 +2,17 @@ import bcrypt from "bcrypt";
 import { sign } from "./jwtService.js";
 import { cryptoAESEncryption } from "./encryptionService.js";
 import { getUserByEmail } from "../models/AuthModel.js";
+import { convertToRoleData } from "../utils/globals.js";
 
-export async function authenticateUser(email, password, expiryTime) {
-  if (!email || !password || !expiryTime) {
+export async function authenticateUser(email, password, expiryTime, role) {
+  if (!email || !password || !expiryTime || !role) {
     return null;
   }
 
   try {
-    const user = await getUserByEmail(email);
+    const userRole = convertToRoleData(role);
+
+    const user = await getUserByEmail(email, userRole ? userRole : "");
     const dbHash = user.u_password;
 
     if (user.u_email !== email || !dbHash) {
@@ -30,6 +33,8 @@ export async function authenticateUser(email, password, expiryTime) {
       email: user.u_email,
       mobile: user.u_mobile,
       image: user.u_image,
+      role: user.u_role ? convertToRoleData(user.u_role) : "User",
+      roleValue: user.u_role ? user.u_role : 0,
     };
 
     const encUser = await cryptoAESEncryption(JSON.stringify(userData)).catch(

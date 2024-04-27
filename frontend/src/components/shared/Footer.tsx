@@ -1,5 +1,9 @@
 const Footer = () => {
-  return <h1 className="text-center mt-10">Footer</h1>;
+  return (
+    <div style={{ width: "100%" }}>
+      <h1 style={{ textAlign: "center" }}>Footer</h1>
+    </div>
+  );
 };
 
 export default Footer;

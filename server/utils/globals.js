@@ -1,6 +1,60 @@
 import { add, endOfDay, getUnixTime } from "date-fns";
 import { toZonedTime } from "date-fns-tz";
 
+export const convertToRoleData = (value) => {
+  if (!value) {
+    return null;
+  }
+
+  let roleData;
+
+  if (typeof value == "number") {
+    switch (value) {
+      case 1:
+        roleData = "admin";
+        break;
+      case 2:
+        roleData = "hr";
+        break;
+      case 3:
+        roleData = "accounts";
+        break;
+      case 4:
+        roleData = "dma";
+        break;
+      case 5:
+        roleData = "employee";
+        break;
+
+      default:
+        break;
+    }
+  } else if (typeof value == "string") {
+    switch (value) {
+      case "admin":
+        roleData = 1;
+        break;
+      case "hr":
+        roleData = 2;
+        break;
+      case "accounts":
+        roleData = 3;
+        break;
+      case "dma":
+        roleData = 4;
+        break;
+      case "employee":
+        roleData = 5;
+        break;
+
+      default:
+        break;
+    }
+  }
+
+  return roleData;
+};
+
 export function dateTimeHandler(value, type, action) {
   if (!value || !type || !action) {
     return null;

@@ -1,11 +1,10 @@
 import { useCallback, useMemo } from "react";
-import { useNavigate } from "react-router-dom";
 import { useAuthContext } from "./useCustomContext";
 import useAxiosInstance from "../config/axiosInstance";
+import { useLogoutRedirect } from "./logoutRedirect";
 
 export const useLogout = () => {
-  const navigate = useNavigate();
-
+  const logoutRedirect = useLogoutRedirect();
   const { setIsAuth, setUser, setAccessToken } = useAuthContext();
 
   const createAxiosInstance = useAxiosInstance();
@@ -24,8 +23,8 @@ export const useLogout = () => {
     setUser(null);
     setAccessToken("");
     setIsAuth(false);
-    navigate("/login");
-  }, [axiosInstance, setIsAuth, setUser, setAccessToken, navigate]);
+    logoutRedirect();
+  }, [logoutRedirect, axiosInstance, setIsAuth, setUser, setAccessToken]);
 
   return logout;
 };

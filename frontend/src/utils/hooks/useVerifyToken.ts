@@ -1,11 +1,11 @@
 import { useCallback, useMemo } from "react";
-import { useNavigate } from "react-router-dom";
 import { useAuthContext } from "./useCustomContext";
 import useAxiosInstance from "../config/axiosInstance";
 import { ApiResponse } from "../../../types/ApiResponse";
+import { useLogoutRedirect } from "../hooks/logoutRedirect";
 
 export const useVerifyToken = () => {
-  const navigate = useNavigate();
+  const logoutRedirect = useLogoutRedirect();
 
   const { setIsAuth, setUser, setAccessToken, accessToken, setIsLoading } =
     useAuthContext();
@@ -36,12 +36,17 @@ export const useVerifyToken = () => {
           setUser(userData);
           setAccessToken(accessTok);
           setIsAuth(true);
+        } else {
+          setUser(null);
+          setAccessToken("");
+          setIsAuth(false);
+          logoutRedirect();
         }
       } else {
         setUser(null);
         setAccessToken("");
         setIsAuth(false);
-        navigate("/login");
+        logoutRedirect();
       }
     } catch (error) {
       console.error("Failed to verify token", error);
@@ -49,12 +54,12 @@ export const useVerifyToken = () => {
       setIsLoading(false);
     }
   }, [
+    logoutRedirect,
     accessToken,
     setIsAuth,
     setIsLoading,
     setUser,
     setAccessToken,
-    navigate,
     axiosInstance,
   ]);
 

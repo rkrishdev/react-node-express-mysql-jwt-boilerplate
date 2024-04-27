@@ -1,9 +1,7 @@
 import express from "express";
-import {
-  login,
-  logoutController,
-  verifyTokenController,
-} from "../../../controllers/api/AuthController.js";
+import AuthController from "../../../controllers/api/AuthController.js";
+
+const authController = new AuthController();
 
 const router = express.Router();
 router.use(express.json());
@@ -13,11 +11,11 @@ router.use(
   })
 );
 
-router.post("/login", login);
+router.post("/login", authController.login);
 
-router.get("/verifyToken", verifyTokenController);
+router.get("/verifyToken", authController.verifyTokenController);
 
-router.get("/logout", logoutController);
+router.get("/logout", authController.logoutController);
 
 router.get("*", function (req, res) {
   res.status(404).json({

@@ -4,6 +4,8 @@ export interface User {
   email: string;
   mobile: number;
   image: string;
+  role: string;
+  roleValue: number;
 }
 
 export type RefreshToken = {
