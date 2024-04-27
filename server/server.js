@@ -52,5 +52,5 @@ app.use("/api", apiRoutesMain);
 app.use("/", webRoutesMain);
 
 app.listen(PORT, () => {
-  console.error("Express server running at http://localhost:" + PORT);
+  console.log("Express server running at http://localhost:" + PORT);
 });
