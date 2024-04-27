@@ -2,6 +2,10 @@
 
 This boilerplate was created to gain a better understanding of JWT and to add scalability and flexibility for small to medium-sized projects. I currently use this as my go-to boilerplate for full-stack Node/Express.js projects. Please understand that this was made with a pure focus on functionality and features, not the UI. So, please bear with the UI.
 
+### Note!
+
+Feel free to remove any tools like MUI, MySQL2 as the app structure is flexible.
+
 ## Features:
 
 1. CRUD-ready, decoupled React and Node/Express app
