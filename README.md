@@ -4,7 +4,7 @@ This boilerplate was created to gain a better understanding of JWT and to add sc
 
 ### Note!
 
-Feel free to remove any tools like MUI, MySQL2 as the app structure is flexible.
+Feel free to remove any tools like MUI, MySQL2 as the app structure is flexible and scalable.
 
 ## Features:
 
